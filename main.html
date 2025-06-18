@@ -50,8 +50,8 @@
       </div>
 
       <div class="col-md-3">
-        <label for="graduation-year" class="form-label">Graduation Year</label>
-        <select class="form-select" id="graduation-year" required>
+        <label for="grad-year-select" class="form-label">Graduation Year</label>
+        <select class="form-select" id="grad-year-select" required>
           <option value="">Choose...</option>
           <option>2020</option>
           <option>2021</option>
@@ -88,5 +88,22 @@
       </div>
     </form>
   </div>
+
+  <script>
+    // Bootstrap validation (required for showing invalid-feedback)
+    (() => {
+      'use strict';
+      const forms = document.querySelectorAll('.needs-validation');
+      Array.from(forms).forEach(form => {
+        form.addEventListener('submit', event => {
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    })();
+  </script>
 </body>
 </html>
